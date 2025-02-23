@@ -1,18 +1,7 @@
-const db = require('../services/databaseService');
-const { broadcast } = require('../services/socketweb');
-const { sendToExternalAPI } = require('../services/apiExternal');
+const express = require('express');
 
-db.on('notification', async (msg) => {
-    console.log("📩 Notifikasi dari PostgreSQL diterima:", msg.payload);
+const getTransactionStatus = (req, res) => {
+    res.status(200).json({ message: "API transaksi aktif!" });
+};
 
-    const transactionData = JSON.parse(msg.payload);
-    const lastName = transactionData.last_name;
-    const createTime = transactionData.create_time;
-
-    if (lastName && createTime) {
-        broadcast(transactionData);
-        await sendToExternalAPI(lastName, createTime);
-    } else {
-        console.warn("⚠ Data tidak valid: last_name atau create_time kosong.");
-    }
-});
+module.exports = { getTransactionStatus };

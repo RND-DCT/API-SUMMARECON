@@ -1,9 +1,8 @@
 const express = require('express');
+const { getTransactionStatus } = require('../controllers/controllerTransaction');
 const router = express.Router();
 
-// Contoh route yang bisa digunakan untuk pengujian
-router.get('/', (req, res) => {
-    res.send({ message: "API transaksi aktif!" });
-});
+
+router.get('/', getTransactionStatus);
 
 module.exports = router;
