@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-async function sendToExternalAPI(last_name, create_time, retries = 3, delay = 5000) {
+async function sendToExternalAPI(last_name, create_time, retries = Infinity, delay = 5000) {
     const requestBody = {
         card_no: last_name,
         kd_cluster: "JSA",
