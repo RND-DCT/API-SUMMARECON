@@ -1,7 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const transactionRoutes = require('./routes/transactionRoutes');
-const { wss } = require('./services/socketWeb');
+const { wss } = require('./services/webSocket');
 require('./controllers/controllerTransaction');
 require('./testDatabase');
 

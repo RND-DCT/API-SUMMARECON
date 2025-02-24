@@ -1,5 +1,5 @@
 const db = require('../config/config');
-const { broadcast } = require('./socketWeb');
+const { broadcast } = require('./webSocket');
 const { sendToExternalAPI } = require('./apiExternal');
 
 db.on('notification', async (msg) => {
